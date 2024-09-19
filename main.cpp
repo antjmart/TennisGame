@@ -13,7 +13,7 @@ int main()
     cout << "have different likelihoods of winning the point. Good luck!" << endl << endl;
     cout << "---------------------------------------------------------------" << endl << endl;
     
-    while (play_match()) {
+    while (false) {
         cout << "Loading up a fresh, new tennis match." << endl << endl;
         cout << "---------------------------------------------------------------" << endl << endl;
     }
