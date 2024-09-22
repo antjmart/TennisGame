@@ -20,6 +20,7 @@ bool Game::play_point() const {
     return c == 'y';
 }
 
+
 void Game::update_score(bool won_point) {
     int *winner_score = won_point ? &player_score : &opponent_score;
     int *loser_score = won_point ? &opponent_score : &player_score;
@@ -46,9 +47,16 @@ void Game::update_score(bool won_point) {
     }
 }
 
+
 int Game::verify_winner() const {
-    return 0;
+    if (player_score >= 60)
+        return 1;
+    else if (opponent_score >= 60)
+        return 2;
+    else
+        return 0;
 }
+
 
 ostream & operator << (ostream & out, const Game & g) {
     if (g.player_serve)
