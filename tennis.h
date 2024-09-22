@@ -18,6 +18,8 @@ public:
     virtual void update_score(bool won_point);
 
     virtual int verify_winner() const;
+
+    friend std::ostream & operator << (std::ostream & out, const Game & g);
 };
 
 
@@ -50,7 +52,7 @@ public:
 
     int verify_winner() const;
 
-    friend std::ostream & operator << (std::ostream out, const Set & s);
+    friend std::ostream & operator << (std::ostream & out, const Set & s);
 };
 
 
@@ -73,7 +75,7 @@ public:
 
     int verify_match_finish() const;
 
-    friend std::ostream & operator << (std::ostream out, const Match & m);
+    friend std::ostream & operator << (std::ostream & out, const Match & m);
 };
 
 

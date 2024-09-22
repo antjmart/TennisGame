@@ -49,3 +49,23 @@ void Game::update_score(bool won_point) {
 int Game::verify_winner() const {
     return 0;
 }
+
+ostream & operator << (ostream & out, const Game & g) {
+    if (g.player_serve)
+        out << "Your Serve, Score: ";
+    else
+        out << "Opponent Serve, Score: ";
+    
+    if (g.player_score == 45)
+        out << "AD";
+    else
+        out << g.player_score;
+    out << " - ";
+
+    if (g.opponent_score == 45)
+        out << "AD";
+    else
+        out << g.opponent_score;
+    
+    return out;
+}
