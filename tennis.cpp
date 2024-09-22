@@ -7,19 +7,43 @@ Game::Game(bool player_is_serving)
     : player_score(0), opponent_score(0), player_serve(player_is_serving)
 {}
 
-int Game::play_point() const {
-    cout << "Point Win: ";
+bool Game::play_point() const {
+    if (player_serve)
+        cout << "You serve, ";
+    else
+        cout << "You receive, ";
+    
+    cout << "Point Win? : ";
     char c;
     cin >> c;
 
-    if (c == 'y')
-        return 1;
-    else
-        return 2;
+    return c == 'y';
 }
 
-void Game::update_score() {
-    return;
+void Game::update_score(bool won_point) {
+    int *winner_score = won_point ? &player_score : &opponent_score;
+    int *loser_score = won_point ? &opponent_score : &player_score;
+
+    switch (*winner_score) {
+        case 30:
+            *winner_score = 40;
+            break;
+        case 40:
+            switch (*loser_score) {
+                case 40:
+                    *winner_score = 45;
+                    break;
+                case 45:
+                    *loser_score = 40;
+                    break;
+                default:
+                    *winner_score = 60;
+            }
+
+            break;
+        default:
+            *winner_score += 15;
+    }
 }
 
 int Game::verify_winner() const {

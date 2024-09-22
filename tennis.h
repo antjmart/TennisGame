@@ -13,9 +13,9 @@ public:
 
     Game(bool player_is_serving);
 
-    int play_point() const;
+    bool play_point() const;
 
-    virtual void update_score();
+    virtual void update_score(bool won_point);
 
     virtual int verify_winner() const;
 };
@@ -27,7 +27,7 @@ public:
 
     Tiebreaker(bool player_is_serving);
 
-    void update_score();
+    void update_score(bool won_point);
 
     int verify_winner() const;
 };
