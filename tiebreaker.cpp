@@ -11,5 +11,10 @@ void Tiebreaker::update_score(bool won_point) {
 }
 
 int Tiebreaker::verify_winner() const {
-    return 0;
+    if (player_score >= 7 && (player_score - opponent_score >= 2))
+        return 1;
+    else if (opponent_score >= 7 && (opponent_score - player_score >= 2))
+        return 2;
+    else
+        return 0;
 }

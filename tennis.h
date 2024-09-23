@@ -5,6 +5,7 @@
 
 class Game
 {
+protected:
     int player_score;
     int opponent_score;
     bool player_serve;
