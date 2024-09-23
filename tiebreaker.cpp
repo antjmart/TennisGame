@@ -7,7 +7,7 @@ Tiebreaker::Tiebreaker(bool player_is_serving)
 {}
 
 void Tiebreaker::update_score(bool won_point) {
-    return;
+    ++(won_point ? player_score : opponent_score);
 }
 
 int Tiebreaker::verify_winner() const {
