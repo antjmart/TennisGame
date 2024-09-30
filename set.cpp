@@ -10,3 +10,15 @@ ostream & operator << (ostream & out, const Set & s) {
     out << s.player_games << " - " << s.opponent_games;
     return out;
 }
+
+bool Set::play_game() const {
+    int game_winner = 0;
+    Game game(player_serve);
+
+    while (game_winner == 0) {
+        game.update_score(game.play_point());
+        game_winner = game.verify_winner();
+    }
+
+    return game_winner == 1;
+}

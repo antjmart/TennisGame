@@ -47,9 +47,9 @@ public:
 
     Set(bool player_is_serving);
 
-    int play_game() const;
+    bool play_game() const;
 
-    void update_games();
+    void update_games(bool won_game);
 
     int verify_winner() const;
 
