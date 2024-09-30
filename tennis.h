@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #ifndef TENNIS_H
 #define TENNIS_H
@@ -59,14 +60,14 @@ public:
 
 class Match
 {
-    Set sets[5];
+    vector<Set> sets;
     int sets_won;
     int sets_lost;
-    int max_sets;
+    bool five_setter;
 
 public:
 
-    Match(bool three_set_match);
+    Match(bool five_set_match);
 
     Match(const Match & m);
 
