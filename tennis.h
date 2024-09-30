@@ -13,7 +13,7 @@ protected:
 
 public:
 
-    Game(bool player_is_serving);
+    explicit Game(bool player_is_serving);
 
     bool play_point() const;
 
@@ -29,7 +29,7 @@ class Tiebreaker : public Game
 {
 public:
 
-    Tiebreaker(bool player_is_serving);
+    explicit Tiebreaker(bool player_is_serving);
 
     void update_score(bool won_point);
 
@@ -46,7 +46,7 @@ public:
 
     bool player_serve;
 
-    Set(bool player_is_serving);
+    explicit Set(bool player_is_serving);
 
     bool play_game() const;
 
@@ -60,6 +60,7 @@ public:
 
 class Match
 {
+public:
     std::vector<Set> sets;
     int sets_won;
     int sets_lost;
