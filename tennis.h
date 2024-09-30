@@ -71,7 +71,7 @@ public:
 
     Match(const Match & m);
 
-    int play_set() const;
+    int play_set();
 
     void update_sets();
 
