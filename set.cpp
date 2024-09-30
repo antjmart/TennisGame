@@ -16,6 +16,7 @@ bool Set::play_game() const {
     Game game(player_serve);
 
     while (game_winner == 0) {
+        cout << game << endl;
         game.update_score(game.play_point());
         game_winner = game.verify_winner();
     }
