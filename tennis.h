@@ -67,7 +67,7 @@ class Match
 
 public:
 
-    Match(bool five_set_match);
+    explicit Match(bool five_set_match);
 
     Match(const Match & m);
 
