@@ -22,3 +22,8 @@ bool Set::play_game() const {
 
     return game_winner == 1;
 }
+
+void Set::update_games(bool won_game) {
+    ++(won_game ? player_games : opponent_games);
+    player_serve = !player_serve;
+}
