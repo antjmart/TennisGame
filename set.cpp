@@ -27,3 +27,12 @@ void Set::update_games(bool won_game) {
     ++(won_game ? player_games : opponent_games);
     player_serve = !player_serve;
 }
+
+int Set::verify_winner() const {
+    if (player_games == 7 || (player_games == 6 && opponent_games <= 4))
+        return 1;
+    else if (opponent_games == 7 || (opponent_games == 6 && player_games <= 4))
+        return 2;
+    else
+        return 0;
+}
