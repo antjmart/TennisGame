@@ -60,7 +60,6 @@ public:
 
 class Match
 {
-public:
     std::vector<Set> sets;
     int sets_won;
     int sets_lost;
