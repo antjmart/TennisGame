@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "tennis.h"
 using namespace std;
 
@@ -14,11 +15,15 @@ bool Game::play_point() const {
     else
         cout << "You receive, ";
     
-    cout << "Point Win? : ";
-    char c;
-    cin >> c;
+    cout << "Point Win? (y/n): ";
+    string input_line;
+    getline(cin, input_line);
 
-    return c == 'y';
+    while (input_line != "y" && input_line != "n") {
+        cout << "Input must be y or n: ";
+        getline(cin, input_line);
+    }
+    return input_line == "y";
 }
 
 
@@ -60,10 +65,7 @@ int Game::verify_winner() const {
 
 
 ostream & operator << (ostream & out, const Game & g) {
-    if (g.player_serve)
-        out << "Your Serve, Score: ";
-    else
-        out << "Opponent Serve, Score: ";
+    out << "Score: ";
     
     if (g.player_score == 45)
         out << "AD";
