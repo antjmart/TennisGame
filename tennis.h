@@ -73,7 +73,7 @@ public:
 
     int play_set();
 
-    void update_sets();
+    void update_sets(bool won_set);
 
     int verify_match_finish() const;
 
