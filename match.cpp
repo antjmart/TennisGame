@@ -49,3 +49,18 @@ int Match::play_set() {
     sets.push_back(set);
     return set_winner == 1;
 }
+
+void Match::update_sets(bool won_set) {
+    ++(won_set ? sets_won : sets_lost);
+}
+
+int Match::verify_match_finish() const {
+    int sets_needed = five_setter ? 3 : 2;
+
+    if (sets_won >= sets_needed)
+        return 1;
+    else if (sets_lost >= sets_needed)
+        return 2;
+    else
+        return 0;
+}
