@@ -13,14 +13,20 @@ ostream & operator << (ostream & out, const Set & s) {
 
 bool Set::play_game() const {
     int game_winner = 0;
-    Game game(player_serve);
+    Game *game;
 
+    if (player_games == 6 && opponent_games == 6)
+        game = new Tiebreaker(player_serve);
+    else
+        game = new Game(player_serve);
+    
     while (game_winner == 0) {
-        cout << game << endl;
-        game.update_score(game.play_point());
-        game_winner = game.verify_winner();
+        cout << *game << endl;
+        game->update_score(game->play_point());
+        game_winner = game->verify_winner();
     }
 
+    delete game;
     return game_winner == 1;
 }
 
