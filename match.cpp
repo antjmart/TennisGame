@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <unistd.h>
 #include "tennis.h"
 using namespace std;
 
@@ -27,7 +28,9 @@ ostream & operator << (ostream & out, const Match & m) {
 
 int Match::play_set() {
     cout << "Starting Set " << (sets.size() + 1) << "..." << endl << endl;
+    sleep(2);
     bool player_will_serve;
+    
     if (sets.size() > 0)
         player_will_serve = sets.back().player_serve;
     else {
@@ -43,7 +46,8 @@ int Match::play_set() {
     while (set_winner == 0) {
         set.update_games(set.play_game());
         set_winner = set.verify_winner();
-        cout << "Set Score: " << set << endl << endl;
+        cout << endl << "Set Score: " << set << endl << endl;
+        sleep(2);
     }
 
     sets.push_back(set);
